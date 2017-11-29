@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Fibonacci</title>
+		<script>
+			function on_btn_gen_click() {
+				count = parseInt(document.getElementById("inCount").value);
+				var first=0, second =1, next, output;
+				for(i=0;i<count;i++){
+					if(i<=1){
+						next=i;
+					}
+					else{
+						next=first + second;
+						first = second;
+						second=next;
+					}
+					if(output)
+					  output += next + " ";
+					else	//first number
+					  output = next + " ";
+				}
+
+				document.getElementById("pSeries").innerHTML = output;
+			}
+
+			var a = [34, 203, 3, 746, 200, 984, 198, 764, 9];
+ 
+			function bubbleSort(a)
+			{
+    			var swapped;
+    			do {
+        			swapped = false;
+        			for (var i=0; i < a.length-1; i++) {
+            			if (a[i] > a[i+1]) {
+                			var temp = a[i];
+                			a[i] = a[i+1];
+                			a[i+1] = temp;
+                			swapped = true;
+            			}
+        			}	
+    			} while (swapped);
+			}
+ 
+bubbleSort(a);
+console.log(a);
+
+		</script>
+	</head>
+	<body>
+		<h1>Fibonacci Numbers Using JavaScript</h1>
+		Enter the count of terms: <input id="inCount" />
+		<button id="btnGen" onclick="on_btn_gen_click()">Generate</button>
+		<p id="pSeries" />
+	</body>
+</html>
